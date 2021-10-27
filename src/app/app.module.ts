@@ -3,10 +3,14 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { PageInfoContainerComponent } from './page-info-container/page-info-container.component';
+import { TimerContainerComponent } from './timer-container/timer-container.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    PageInfoContainerComponent,
+    TimerContainerComponent
   ],
   imports: [
     BrowserModule,
