@@ -1,6 +1,6 @@
 $font-stack: Helvetica, sans-serif;
-$ivory: #F5FBEF;
-$text-color: #333333;
+$nice-blue: #93ACB5;
+$text-color: #2F2D2E;
 
 html, body {
   width: 100%;
@@ -12,13 +12,13 @@ html, body {
 * {
   font: 100% $font-stack;
   color: $text-color;
-  background-color: $ivory;
+  background-color: $nice-blue;
 }
 
 /* Firefox */
 * {
   scrollbar-width: thin;
-  scrollbar-color: $ivory grey;
+  scrollbar-color: $nice-blue grey;
 }
 
 /* Chrome, Edge, and Safari */
@@ -27,10 +27,16 @@ html, body {
 }
 
 *::-webkit-scrollbar-track {
-  background: $ivory;
+  background: $nice-blue;
 }
 
 *::-webkit-scrollbar-thumb {
   background-color: darkgray;
   border-radius: 20px;
+}
+
+@media only screen and (max-width: 600px) {
+  * {
+    background-color: lightblue;
+  }
 }
