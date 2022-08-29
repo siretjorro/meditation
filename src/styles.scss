@@ -1,6 +1,6 @@
 $font-stack: Helvetica, sans-serif;
-$nice-blue: #93ACB5;
-$text-color: #2F2D2E;
+$bg-color: #2F2D2E;
+$text-color: #ffffff;
 
 html, body {
   width: 100%;
@@ -10,15 +10,15 @@ html, body {
 }
 
 * {
-  font: 100% $font-stack;
+  font-family: $font-stack;
   color: $text-color;
-  background-color: $nice-blue;
+  background-color: $bg-color;
 }
 
 /* Firefox */
 * {
   scrollbar-width: thin;
-  scrollbar-color: $nice-blue grey;
+  scrollbar-color: $bg-color grey;
 }
 
 /* Chrome, Edge, and Safari */
@@ -27,7 +27,7 @@ html, body {
 }
 
 *::-webkit-scrollbar-track {
-  background: $nice-blue;
+  background: $bg-color;
 }
 
 *::-webkit-scrollbar-thumb {
@@ -37,6 +37,6 @@ html, body {
 
 @media only screen and (max-width: 600px) {
   * {
-    background-color: lightblue;
+    // background-color: lightblue;
   }
 }

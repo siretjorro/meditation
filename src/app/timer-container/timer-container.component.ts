@@ -1,5 +1,5 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { FormBuilder, FormArray } from '@angular/forms';
+import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormArray, SelectMultipleControlValueAccessor } from '@angular/forms';
 
 @Component({
   selector: 'app-timer-container',
@@ -7,7 +7,6 @@ import { FormBuilder, FormArray } from '@angular/forms';
   styleUrls: ['./timer-container.component.scss']
 })
 export class TimerContainerComponent implements OnInit {
-  // @Input() time?: number;
 
   intervalForm = this.fb.group({
     intervals: this.fb.array([
@@ -20,27 +19,36 @@ export class TimerContainerComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  // onSubmit(): void {
-  //   this.playAudio();
-  // }
-
-  // playAudio(): void {
-  //   let audio = new Audio();
-  //   audio.src = "../../../assets/audio/bell.mp3";
-  //   audio.load();
-  //   audio.play();
-  // }
-
-  onSubmit() {
-    // TODO: Use EventEmitter with form value
-    console.warn(this.intervalForm.value);
+  playAudio(): void {
+    let audio = new Audio();
+    audio.src = "../../../assets/audio/bell.mp3";
+    audio.load();
+    audio.play();
   }
 
-  get intervals() {
+  get intervals(): FormArray {
     return this.intervalForm.get('intervals') as FormArray;
   }
 
-  addInterval() {
+  sleep(ms: number): Promise<any> {
+    return new Promise(resolve => setTimeout(resolve, ms));
+  }
+
+  async onSubmit(): Promise<void> {
+    // TODO: Use EventEmitter with form value
+    console.warn(this.intervalForm.value);
+    this.playAudio();
+
+    for (var interval of this.intervals.controls) {
+      await this.sleep(interval.value*60000);
+      this.playAudio();
+      // console.log(typeof interval.value);
+    }
+
+    this.playAudio();
+  }
+
+  addInterval(): void {
     this.intervals.push(this.fb.control(''));
   }
 
