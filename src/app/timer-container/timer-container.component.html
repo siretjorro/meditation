@@ -1,16 +1,16 @@
 <form [formGroup]="intervalForm" (ngSubmit)="onSubmit()">
   <div formArrayName="intervals">
-    <h2>Intervals</h2>
+    <div class="heading">intervals</div>
 
-    <div *ngFor="let interval of intervals.controls; let i=index">
+    <div *ngFor="let interval of intervals.controls; let i=index" class="interval">
       <!-- The repeated interval template -->
-      <label for="interval-{{ i }}">Interval:</label>
-      <input id="interval-{{ i }}" type="text" [formControlName]="i">
+      <!-- <label for="interval-{{ i }}">interval:</label> -->
+      <input id="interval-{{ i }}" type="text" [formControlName]="i" size="5"> minutes
     </div>
-    <button type="button" (click)="addInterval()">+ Add another interval</button>
+    <button type="button" (click)="addInterval()">add interval</button>
+    <button type="submit">submit</button>
   </div>
 
-  <button type="submit">Submit</button>
 </form>
 <!-- <div>
   Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi luctus ipsum ut mi congue laoreet. In nisl odio, mattis
